@@ -14,26 +14,19 @@ $f3 = Base::instance();
 //f3 error debugging
 $f3->set(DEBUG, 3);
 
+//connect to database
+$dbh = connect();
+
 //Define a default route
 $f3->route('GET /', function ($f3) {
 
     echo 'heyyaa<br>';
-    $dbh = connect();
-
-    try {
-        //Instantiate a database object
-        $dbh = new PDO(DB_DSN, DB_USERNAME,
-            DB_PASSWORD);
-        echo 'Still Connected to database!';
-        return;
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        return;
-    }
+    $students = getStudents();
+    $f3->set("students", $students);
 
     //load a template
     $template = new Template();
-
+echo $template->render('views/all-students.html');
 
     //alternate syntax
     //echo Template::instance()->render('views/info.html');

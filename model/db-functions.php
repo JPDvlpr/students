@@ -10,3 +10,22 @@ function conenct(){
         return;
     }
 }
+
+function getStudents(){
+    global $dbh;
+    //1. Define the query
+    $sql = 'SELECT * FROM students ORDER BY LAST, FIRST';
+
+    //2. Prepare the statement
+    $statement = $dbh->prepare($sql);
+
+    //3. Bind paramaters
+
+    //4. Execute the query
+    $statement->execute();
+
+    //5. Get results
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($result);
+    return $result;
+}
