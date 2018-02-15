@@ -1,0 +1,17 @@
+{
+  "name": "jpappoe/328/students",
+  "authors": [
+    {
+      "name": "Jhakon Pappoe",
+      "email": "jpappoe@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  },
+  "autoload": {
+    "classmap": [
+      "classes/"
+    ]
+  }
+}
